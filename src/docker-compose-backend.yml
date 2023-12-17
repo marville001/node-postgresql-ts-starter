@@ -1,0 +1,15 @@
+version: '3.8'
+networks:
+  default:
+    name: api-network
+services:
+  api:
+    container_name: my_api
+    image: my_api
+    build:
+      context: .
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    ports:
+      - ${NODE_PORT}:${NODE_PORT}
