@@ -1,7 +1,7 @@
-import { NextFunction, Request, Response } from "express";
+import { Request, Response } from "express";
 import { IError } from "../utils/appError";
 
-const globalErrorHandler = (err: IError, req: Request, res: Response, next: NextFunction) => {
+const globalErrorHandler = (err: IError, _req: Request, res: Response) => {
 
 	res.status(err.statusCode || 500).json({
 		success: false,

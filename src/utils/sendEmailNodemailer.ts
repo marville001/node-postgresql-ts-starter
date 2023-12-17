@@ -26,8 +26,7 @@ interface EmailOptioms {
 }
 
 function createTransporter(config: any) {
-	let transporter = nodemailer.createTransport(config);
-	return transporter;
+	return nodemailer.createTransport(config);
 }
 
 const defaultConfig: EmailConfig = {

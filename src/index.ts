@@ -24,7 +24,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.all("*", (req, res, next) => {
+app.all("*", (req, res) => {
 	res.status(404).send({ status: 404, message: `Can't find ${req.originalUrl} on the server` });
 });
 
