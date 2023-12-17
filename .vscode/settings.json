@@ -1,0 +1,9 @@
+{
+    // ESLint Autofix on save
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit",
+        "source.organizeImports": "explicit"
+    },
+    "editor.formatOnSave": true,
+	"editor.formatOnPaste": true
+}
