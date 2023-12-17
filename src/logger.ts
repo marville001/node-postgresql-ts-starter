@@ -10,7 +10,6 @@ const levels = {
 
 const level = () => {
 	const env = process.env.NODE_ENV || "development";
-
 	return env === "development" ? "debug" : "warn";
 };
 
@@ -24,7 +23,6 @@ const colors = {
 
 winston.addColors(colors);
 
-
 const format = winston.format.combine(
 	winston.format.timestamp({ format: "YYYY-MM-DD HH:mm:ss:ms" }),
 	winston.format.colorize({ all: true }),
@@ -35,10 +33,12 @@ const format = winston.format.combine(
 
 const transports = [
 	new winston.transports.Console(),
+
 	new winston.transports.File({
 		filename: 'logs/error.log',
 		level: "error"
 	}),
+
 	new winston.transports.File({
 		filename: 'logs/all.log'
 	}),
