@@ -4,6 +4,7 @@ import express from "express";
 import Logger from "./logger";
 
 import globalErrorHandler from "./middleware/globalErrorHandler";
+import connectToDb from "./utils/db";
 
 dotenv.config();
 
@@ -30,6 +31,8 @@ app.all("*", (req, res, next) => {
 // error handling middleware
 app.use(globalErrorHandler);
 
-app.listen(PORT, () => {
-	Logger.info(`🚀 App running on: http://localhost:${PORT}`);
+connectToDb().then(() => {
+	app.listen(PORT, () => {
+		Logger.info(`🚀 App running on: http://localhost:${PORT}`);
+	});
 });
